@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,8 +38,7 @@ Route::get('/users', [App\Http\Controllers\UserController::class, 'index']);
 Route::get('/api/users', [App\Http\Controllers\UserController::class, 'index_api']);
 
 // route admin
-// Route::middleware('auth.admin')->prefix('admin')->group(function ()
-Route::prefix('admin')->group(function ()
+Route::middleware('auth.admin')->prefix('admin')->group(function ()
 {
-    Route::get('/login', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+    Route::get('', [DashboardController::class, 'index']);
 });

@@ -29,7 +29,6 @@ class UserController extends Controller
         // Tạo mới user với các dữ liệu tương ứng với dữ liệu được gán trong $data
         User::create($data);
         // echo "success create user";
-        //lấy ra toàn bộ user
         $users = User::all();
         return view('index', compact('users'));
     }

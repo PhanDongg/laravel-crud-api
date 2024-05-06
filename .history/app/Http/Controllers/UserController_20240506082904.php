@@ -29,7 +29,6 @@ class UserController extends Controller
         // Tạo mới user với các dữ liệu tương ứng với dữ liệu được gán trong $data
         User::create($data);
         // echo "success create user";
-        //lấy ra toàn bộ user
         $users = User::all();
         return view('index', compact('users'));
     }
@@ -68,9 +67,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $user->delete();
-        echo"success delete user";
+        // echo"success delete user";
         // $users = User::all();
-        // return view('index');
+        return view('index');
     }
 
     public function index()

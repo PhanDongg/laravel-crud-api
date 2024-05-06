@@ -22,7 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         //dạng global. có thể sử dụng use ở phía trên
-        \App\Http\Middleware\CheckLoginAdmin::class,
+        // \App\Http\Middleware\CheckLoginAdmin::class 
     ];
 
     /**

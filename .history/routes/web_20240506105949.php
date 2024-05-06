@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +14,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/home-login', function () {
+Route::get('/home', function () {
     return view('login');
 });
 
@@ -35,10 +35,3 @@ Route::get('/users', [App\Http\Controllers\UserController::class, 'index']);
 
 // API
 Route::get('/api/users', [App\Http\Controllers\UserController::class, 'index_api']);
-
-// route admin
-// Route::middleware('auth.admin')->prefix('admin')->group(function ()
-Route::prefix('admin')->group(function ()
-{
-    Route::get('/login', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
-});
