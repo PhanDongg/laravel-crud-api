@@ -11,7 +11,18 @@ web
 
 api
 - http://127.0.0.1:8000/api/users
-ld
-b
 
-k
+authen author
+- làm vể hệ thống quản lí bài viết
+- người dùng có thể đăng nhập, đăng kí, tạo bài viết và chỉ có thể chỉnh sửa hoặc xóa bài viết mà họ đã tạo
+- chức năng chính:
+1. đăng nhập và đăng kí người dùng
+2. tạo, chỉnh sửa và xóa bài viết
+3. chỉ cho phép người dùng chỉnh sửa , xóa bài viết mà họ đã tạo
+
+tạo bảng users-new
+tạo bảng post
+tạo model User-new, model Post
+tạo controller PostController
+
+

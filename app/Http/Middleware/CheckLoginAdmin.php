@@ -15,8 +15,27 @@ class CheckLoginAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        echo 'Middleware request';dd('2');
-        return $next($request);
-        // return 'Middleware request';
+        // echo 'Middleware request';
+        // dd('2');
+        // return $next($request);
+
+
+        // kiểm tra xem người dùng đăng nhập có phải là admin hay không. 
+        // Nếu không phải admin, hãy chuyển hướng người dùng về trang khác (ví dụ: trang chủ).
+        // if (auth()->check() && auth()->user()->isAdmin()) {
+        //     return $next($request);
+        // }
+
+        // return redirect('/home-login');
+
+
+
+        if (auth()->check() && auth()->user()->role == 'admin') {
+            return $next($request);
+        }
+    
+        return redirect()->route('home-login')->with('error', 'Bạn không có quyền truy cập.');
+
+
     }
 }

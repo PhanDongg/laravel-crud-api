@@ -22,7 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         //dạng global. có thể sử dụng use ở phía trên
-        \App\Http\Middleware\CheckLoginAdmin::class,
+        // \App\Http\Middleware\CheckLoginAdmin::class,
     ];
 
     /**
@@ -66,5 +66,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'auth.admin' => \App\Http\Middleware\CheckLoginAdmin::class,
+        
     ];
 }

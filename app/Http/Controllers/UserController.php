@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 // Thêm thư viện để mã hóa password
 use Illuminate\Support\Facades\Hash;
+use PharIo\Manifest\Author;
 
 class UserController extends Controller
 {
@@ -42,6 +43,15 @@ class UserController extends Controller
         // điều hướng đến view edit user và truyền sang dữ liệu về user muốn sửa đổi
         // return view('users.edit', compact('user'));
         return view('edit', compact('user'));
+
+        // // author
+        // $user = User::find($id);
+
+        // if (auth()->user()->isAdmin()) {
+        //     return view('admin.edit', compact('user'));
+        // } else {
+        //     return redirect()->back()->with('error', 'Bạn không có quyền truy cập');
+        // }
     }
 
     public function update(Request $request, $id)
@@ -59,7 +69,18 @@ class UserController extends Controller
         $user->update($data); // Sử dụng instance $user để gọi phương thức update()
         // echo "success update user";
         $users = User::all();
+        // dd(2);
         return view('index', compact('users'));
+
+        // author
+        // $user = User::find($id);
+
+        // if (auth()->user()->isAdmin()) {
+        //     // Logic để cập nhật thông tin người dùng
+        //     return redirect()->route('users.index')->with('success', 'Cập nhật người dùng thành công');
+        // } else {
+        //     return redirect()->back()->with('error', 'Bạn không có quyền truy cập');
+        // }
     }
 
     public function delete($id)
@@ -71,6 +92,16 @@ class UserController extends Controller
         echo"success delete user";
         // $users = User::all();
         // return view('index');
+
+        // // Author
+        // $user = User::find($id);
+
+        // if (auth()->user()->isAdmin()) {
+        //     // Logic để xóa người dùng
+        //     return redirect()->route('users.index')->with('success', 'Xóa người dùng thành công');
+        // } else {
+        //     return redirect()->back()->with('error', 'Bạn không có quyền truy cập');
+        // }
     }
 
     public function index()
@@ -91,4 +122,5 @@ class UserController extends Controller
         // trả về danh sách user dưới dạng JSON
         return response()->json($users);
     }
+
 }

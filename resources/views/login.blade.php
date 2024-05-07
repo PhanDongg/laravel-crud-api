@@ -36,10 +36,11 @@
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
-    
-<form>
+    {{-- form của bootstrap --}}
+    {{-- <form>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -54,7 +55,25 @@
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  </form> --}}
+  
+    <style>
+        #form-login {
+            border: 1px solid;
+        }
+    </style>
+    <form action="{{ route('login') }}" method="post" id="form-login">
+        @csrf
+        <div>
+            <label for="email">Nhập email</label>
+            <input type="text" name="email">
+        </div>
+        <div>
+            <label for="password">Nhập password</label>
+            <input type="password" name="password">
+        </div>
+        <button type="submit">Đăng nhập</button>
+    </form>
 
     <footer class="bg-dark text-light text-center py-4 d-none">
         <div class="container">

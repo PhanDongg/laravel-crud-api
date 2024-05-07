@@ -36,6 +36,11 @@
                     </li>
                 </ul>
             </div>
+            {{-- đăng xuất --}}
+            <form action="{{ route('logout') }}" method="post" id="form-logout" style="border:none; width:20%;">
+                @csrf
+                <button type="submit">Đăng xuất</button>
+            </form>
         </div>
     </nav>
 
@@ -52,10 +57,12 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td><button><a href="http://127.0.0.1:8000/users/create">Add User</a< /button>
+                <td><button><a href="http://127.0.0.1:8000/admin/users/create">Add User</a</button>
                 </td>
-                <td><button><a href="http://127.0.0.1:8000/users/update/{{ $user->id }}">Update User</a></button></td>
-                <td><button><a href="http://127.0.0.1:8000/users/delete/{{ $user->id }}"> Delete User</a></button></td>
+                <td><button><a href="http://127.0.0.1:8000/admin/users/update/{{ $user->id }}">Update
+                            User</a></button></td>
+                <td><button><a href="http://127.0.0.1:8000/admin/users/delete/{{ $user->id }}"> Delete
+                            User</a></button></td>
             </tr>
         @endforeach
     </table>
