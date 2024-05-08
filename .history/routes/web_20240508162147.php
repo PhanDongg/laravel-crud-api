@@ -18,12 +18,12 @@ use App\Http\Controllers\UserController;
 */
 
 // Route::match(['get', 'post'], '/dashboard', function(){
-//     // Route::match('/dashboard', function(){  
+//     Route::match('/dashboard', function(){  
 //     return view('dashboard');
 // });
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('home-login');
 
 Route::get('/home-login', function () {
     return view('login');

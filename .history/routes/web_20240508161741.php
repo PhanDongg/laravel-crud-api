@@ -17,14 +17,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::match(['get', 'post'], '/dashboard', function(){
-//     // Route::match('/dashboard', function(){  
-//     return view('dashboard');
-// });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
 Route::get('/home-login', function () {
     return view('login');
 })->name('home-login');
@@ -38,7 +30,6 @@ Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'
 
 //loguot
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-
 
 // route admin
 Route::middleware('auth.admin')->prefix('admin')->group(function () {

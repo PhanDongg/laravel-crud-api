@@ -3,7 +3,6 @@
     <meta charset="UTF-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link rel="stylesheet" href="{{asset('home.css')}}">
 <title>Home</title>
 
 <!-- BOOSTRAPS CDNsssssssss -->
