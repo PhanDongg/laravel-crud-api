@@ -228,8 +228,8 @@
             <li class="nav-main-item open">
               <a class="nav-main-link" href="/">
                 <i class="nav-main-link-icon si si-globe"></i>
-                <span class="nav-main-link-name">Create User</span>
-              </a>
+                <span class="nav-main-link-name">Ceate User</span>
+              <a>
             </li>
           </ul>
         </div>
@@ -461,7 +461,7 @@
             Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://pixelcave.com" target="_blank">pixelcave</a>
           </div>
           <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-            <a class="fw-semibold" href="https://pixelcave.com/products/oneui" target="_blank">OneUI</a> &copy; <span data-toggle="year-copy"></span>
+            <a class="fw-semibold" href="https://pixelcave.com/products/oneui" target="_blank">Phan Dong</a> &copy; <span data-toggle="year-copy"></span>
           </div>
         </div>
       </div>

@@ -228,7 +228,7 @@
             <li class="nav-main-item open">
               <a class="nav-main-link" href="/">
                 <i class="nav-main-link-icon si si-globe"></i>
-                <span class="nav-main-link-name">Create User</span>
+                <span class="nav-main-link-name">Landing</span>
               </a>
             </li>
           </ul>

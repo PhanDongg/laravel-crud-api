@@ -226,10 +226,7 @@
               </a>
             </li>
             <li class="nav-main-item open">
-              <a class="nav-main-link" href="/">
-                <i class="nav-main-link-icon si si-globe"></i>
-                <span class="nav-main-link-name">Create User</span>
-              </a>
+              <a class="nav-main-link" href="/">Ceate User<a>
             </li>
           </ul>
         </div>

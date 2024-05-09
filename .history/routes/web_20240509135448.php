@@ -21,38 +21,10 @@ use App\Http\Controllers\UserController;
 //     // Route::match('/dashboard', function(){  
 //     return view('dashboard');
 // });
-
-
-// Route::get('/demoooo', function () {
-//     return view('auth/login');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/register');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/verify');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/confirm');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/email');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/reset');
-// });
-
-
-// Example Routes
-Route::view('/', 'landing');
-Route::match(['get', 'post'], '/dashboard', function(){
-    return view('dashboard');
+Route::get('/dashboard', function () {
+    // return view('dashboard');
+    return (fff);
 });
-Route::view('/pages/slick', 'pages.slick');
-Route::view('/pages/datatables', 'pages.datatables');
-Route::view('/pages/blank', 'pages.blank');
-
-
 
 Route::get('/home-login', function () {
     return view('login');

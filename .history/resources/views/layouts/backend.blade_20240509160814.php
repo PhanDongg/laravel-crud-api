@@ -128,7 +128,7 @@
           <span class="smini-visible">
             <i class="fa fa-circle-notch text-primary"></i>
           </span>
-          <span class="smini-hide fs-5 tracking-wider">One<span class="fw-normal">UI</span></span>
+          <span class="smini-hide fs-5 tracking-wider">Phan<span class="fw-normal"> Dong</span></span>
         </a>
         <!-- END Logo -->
 
@@ -228,8 +228,8 @@
             <li class="nav-main-item open">
               <a class="nav-main-link" href="/">
                 <i class="nav-main-link-icon si si-globe"></i>
-                <span class="nav-main-link-name">Create User</span>
-              </a>
+                <span class="nav-main-link-name">Ceate User</span>
+              <a>
             </li>
           </ul>
         </div>
@@ -308,10 +308,10 @@
                 </a>
                 <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
                   <span class="fs-sm fw-medium">
-                    <form action="{{ route('logout') }}" method="post" id="form-logout" style="border:none; width:20%;">
+                    {{-- <form action="{{ route('logout') }}" method="post" id="form-logout" style="border:none; width:20%;">
                       @csrf
                       <button type="submit">Log Out</button>
-                  </form>
+                    </form> --}}
                   </span>
                 </a>
               </div>

@@ -225,11 +225,24 @@
                 <span class="nav-main-link-name">Landing</span>
               </a>
             </li>
-            <li class="nav-main-item open">
-              <a class="nav-main-link" href="/">
-                <i class="nav-main-link-icon si si-globe"></i>
-                <span class="nav-main-link-name">Create User</span>
-              </a>
+            <li>
+              <h2>Create user</h2>
+              <form action="/admin/users/create" method="post">
+                  @csrf
+                  <label for="Name">
+                      Name:
+                      <input type="text" name="name">
+                  </label><br><br>
+                  <label for="Email">
+                      Email:
+                      <input type="text" name="email">
+                  </label><br><br>
+                  <label for="Password">
+                      Password:
+                      <input type="text" name="password">
+                  </label><br><br>
+                  <button type="submit">Create user</button>
+              </form>
             </li>
           </ul>
         </div>

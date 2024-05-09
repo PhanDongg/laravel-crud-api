@@ -23,25 +23,10 @@ use App\Http\Controllers\UserController;
 // });
 
 
-// Route::get('/demoooo', function () {
-//     return view('auth/login');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/register');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/verify');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/confirm');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/email');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/reset');
-// });
-
+Route::get('/demo', function () {
+    // return view('auth/login');
+    return ('f');
+});
 
 // Example Routes
 Route::view('/', 'landing');

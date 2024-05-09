@@ -30,7 +30,7 @@ class LoginController extends Controller
                 // return redirect()->route('admin/users');
                 return redirect()->intended('/dashboard');
             } elseif ($user->role == 'user') {
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('user/dashboard');
             }
         } else {
             return redirect()->back()->with('error', 'Đăng nhập không thành công');
