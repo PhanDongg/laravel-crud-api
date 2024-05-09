@@ -28,8 +28,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <link href="https://fonts.cdnfonts.com/css/interface-trial" rel="stylesheet">
-
-
     
 <body class="home">
     <!-- HEADER -->
@@ -38,7 +36,7 @@
     <div class="container-fluid col header__container--detail col">
       <div class="header-left">
         <div class="header__logo">
-        <a class="navbar-brand" href="index.html"><img src="/logistic-apllogistics/assets/image/logo-tbl-1.png" alt=""></a>
+        <a class="navbar-brand" href="index.html"><img src="{{ asset('media/assets/image/APL_Logo.png') }}" alt=""></a>
         <a class="navbar-brand__sticky" href="index.html"><img src="/logistic-apllogistics/assets/image/logo-tbl-1.png" alt=""></a>
       </div>
       </div>
@@ -59,14 +57,14 @@
                   <li class="dropdown-menu-horizontal__link col">
                     <a class="dropdown-item text-uppercase" href="automotive.html">
                       <span class="market-circle-container">
-                        <span class="market-circle" style="background-image: url(assets/image/automotive-background-768x512.jpg);">
+                        <span class="market-circle" style="background-image: url(media/assets/image/APL_Logo.png); ">
                           <span class="arrow-white market-circle__arrow" style="background-color: #0048bb;"></span>
                         </span>
                         <span> automotive </span>
                       </span>
                     </a>
                   </li>
-  
+    {{-- src="{{ asset('media/assets/image/APL_Logo.png') }}" --}}
                   <li class="dropdown-menu-horizontal__link col">
                     <a class="dropdown-item text-uppercase" href="https://www.apllogistics.com/market/automotive">
                       <span class="market-circle-container">
@@ -77,7 +75,7 @@
                       </span>
                     </a>
                   </li>
-  
+
                   <li class="dropdown-menu-horizontal__link col">
                     <a class="dropdown-item text-uppercase" href="https://www.apllogistics.com/market/automotive">
                       <span class="market-circle-container">
@@ -3866,7 +3864,7 @@
                   <a class="post-item mobile-conf for-mobile"
                     href="https://www.apllogistics.com/2023/12/seamless-supply-chain-integration-and-strategic-partnerships"
                     title="Seamless Supply Chain Integration and Strategic Partnerships">
-                    <img src="assets/image/apll-blog-axway-summit-2023-768x471.jpg" class="img-overlay">
+                    <img src="{{ asset('media/assets/image/apll-blog-axway-summit-2023-768x471.jpg') }}" class="img-overlay">
                     <div class="post-gradient-overlay"
                       style="background-image: linear-gradient( to top, #28234d 20%, transparent 100%); "></div>
                     <div class="post-inner ">
@@ -3980,7 +3978,7 @@
     <div class="footer__top--left col-xl-3 col-md-4">
       <div class="footer-logo">
         <a href="https://www.apllogistics.com/">
-          <img src="assets/image/logo_on_scroll.png" alt="">
+          <img src="{{ asset('media/assets/image/logo_on_scroll.png') }}" alt="">
         </a>
       </div>
       <div class="footer-network">

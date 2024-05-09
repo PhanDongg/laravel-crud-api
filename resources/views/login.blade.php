@@ -39,7 +39,6 @@
         </div>
         <button type="submit">Đăng nhập</button>
     </form>
-
     <footer class="bg-dark text-light text-center py-4 d-none">
         <div class="container">
             <div class="row">

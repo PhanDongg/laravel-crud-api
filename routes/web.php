@@ -42,6 +42,9 @@ use App\Http\Controllers\UserController;
 //     return view('auth/passwords/reset');
 // });
 
+Route::get('/demoooo', function () {
+    return view('home');
+});
 
 // Example Routes
 Route::view('/', 'landing');
