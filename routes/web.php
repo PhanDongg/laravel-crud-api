@@ -42,9 +42,9 @@ use App\Http\Controllers\UserController;
 //     return view('auth/passwords/reset');
 // });
 
-Route::get('/demoooo', function () {
-    return view('home');
-});
+// Route::get('/demoooo', function () {
+//     return view('home');
+// });
 
 // Example Routes
 Route::view('/', 'landing');
@@ -55,6 +55,11 @@ Route::view('/pages/slick', 'pages.slick');
 Route::view('/pages/datatables', 'pages.datatables');
 Route::view('/pages/blank', 'pages.blank');
 
+Route::view('/pages/posts', 'pages.posts');
+Route::view('/pages/add-post', 'pages.addpost');
+Route::view('/pages/categories', 'pages.categories');
+
+Route::post('/pages/add-post', [App\Http\Controllers\PostController::class, 'add_post'])->name('pages.addpost');
 
 
 Route::get('/home-login', function () {

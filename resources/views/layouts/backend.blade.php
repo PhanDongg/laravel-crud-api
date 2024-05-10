@@ -225,10 +225,26 @@
                 <span class="nav-main-link-name">Landing</span>
               </a>
             </li>
-            <li class="nav-main-item open">
-              <a class="nav-main-link" href="/">
+            <li class="nav-main-heading">Phan Đông add new</li>
+            <li class="nav-main-item">
+              <a class="nav-main-link{{ request()->is('pages/posts') ? ' active' : '' }}" href="/pages/posts">
                 <i class="nav-main-link-icon si si-globe"></i>
-                <span class="nav-main-link-name">Create User</span>
+                <span class="nav-main-link-name">Post</span>
+              </a>
+            </li>
+            <li class="nav-main-item">
+              <a class="nav-main-link{{ request()->is('pages/posts') ? ' active' : '' }}" href="/pages/posts">
+                <span class="nav-main-link-name">All Posts</span>
+              </a>
+            </li>
+            <li class="nav-main-item">
+              <a class="nav-main-link{{ request()->is('pages/add-post') ? ' active' : '' }}" href="/pages/add-post">
+                <span class="nav-main-link-name">Add New post</span>
+              </a>
+            </li>
+            <li class="nav-main-item">
+              <a class="nav-main-link{{ request()->is('pages/categories') ? ' active' : '' }}" href="/pages/categories">
+                <span class="nav-main-link-name">Category</span>
               </a>
             </li>
           </ul>
@@ -469,6 +485,8 @@
     <!-- END Footer -->
   </div>
   <!-- END Page Container -->
+  
+  
 </body>
 
 </html>
