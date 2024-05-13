@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,38 +17,11 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Route::get('/', 'PostsController@index');//tại sao thằng này ko được mà thằng dưới lại đc
+Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('home');
 
-// Route::match(['get', 'post'], '/dashboard', function(){
-//     // Route::match('/dashboard', function(){  
-//     return view('dashboard');
-// });
-
-
-// Route::get('/demoooo', function () {
-//     return view('auth/login');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/register');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/verify');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/confirm');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/email');
-// });
-// Route::get('/demoooo', function () {
-//     return view('auth/passwords/reset');
-// });
-
-// Route::get('/demoooo', function () {
-//     return view('home');
-// });
-
-// Example Routes
-Route::view('/', 'landing');
+//  Routes defaut
+// Route::view('/', 'landing');
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');
 });
@@ -59,16 +33,52 @@ Route::view('/pages/posts', 'pages.posts');
 Route::view('/pages/add-post', 'pages.addpost');
 Route::view('/pages/categories', 'pages.categories');
 
+//POST
+//route add post
 Route::post('/pages/add-post', [App\Http\Controllers\PostController::class, 'add_post'])->name('pages.addpost');
+
+//route all post
+Route::get('/pages/posts', [App\Http\Controllers\PostsController::class, 'posts'])->name('pages.posts');//VIEW CHÍNH
+
+//route add new post
+Route::get('/pages/add-post', [App\Http\Controllers\PostsController::class, 'addNew'])->name('pages.add-posts');
+
+//đầu tiên phải chỉnh sửa và sau đó mới cập nhật
+//edit post
+Route::get('/pages/update/{id}', [App\Http\Controllers\PostsController::class, 'edit'])->name('pages.update');
+//update post
+Route::post('/pages/update/{id}', [App\Http\Controllers\PostsController::class, 'update'])->name('pages.update');
+
+//delete post
+Route::get('/pages/delete/{id}', [App\Http\Controllers\PostsController::class, 'delete'])->name('pages.delete');
+
+
+//CATEGORY
+//add cate
+// Route::post('/pages/add-category', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('pages.addcategory');
+
+//all cate
+Route::get('/pages/categories', [App\Http\Controllers\CategoryController::class, 'categories'])->name('pages.categories');
+
+//add cate chưa xong
+// Route::get('/pages/categories', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('pages.category');
+
+//update cate
+//delete
+
+
+
+
+
+
+
+
+
 
 
 Route::get('/home-login', function () {
     return view('login');
 })->name('home-login');
-
-
-// API
-Route::get('/api/users', [App\Http\Controllers\UserController::class, 'index_api']);
 
 //login
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');

@@ -114,13 +114,4 @@ class UserController extends Controller
         return view('index', compact('users'));
     }
 
-    public function index_api()
-    {
-        // lấy ra toàn bộ user
-        $users = User::all();
-
-        // trả về danh sách user dưới dạng JSON
-        return response()->json($users);
-    }
-
 }
