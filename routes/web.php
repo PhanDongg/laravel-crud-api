@@ -31,17 +31,15 @@ Route::view('/pages/blank', 'pages.blank');
 
 Route::view('/pages/posts', 'pages.posts');
 Route::view('/pages/add-post', 'pages.addpost');
-Route::view('/pages/categories', 'pages.categories');
+
+Route::view('/pages/category/categories', 'pages.categories');
 
 //POST
 //route add post
-Route::post('/pages/add-post', [App\Http\Controllers\PostController::class, 'add_post'])->name('pages.addpost');
-
+// Route::post('/pages/add-post', [App\Http\Controllers\PostController::class, 'categories'])->name('pages.addpost');
+Route::post('/pages/add-post', [App\Http\Controllers\PostsController::class, 'add_post'])->name('pages.addpost');
 //route all post
 Route::get('/pages/posts', [App\Http\Controllers\PostsController::class, 'posts'])->name('pages.posts');//VIEW CHÍNH
-
-//route add new post
-Route::get('/pages/add-post', [App\Http\Controllers\PostsController::class, 'addNew'])->name('pages.add-posts');
 
 //đầu tiên phải chỉnh sửa và sau đó mới cập nhật
 //edit post
@@ -55,16 +53,19 @@ Route::get('/pages/delete/{id}', [App\Http\Controllers\PostsController::class, '
 
 //CATEGORY
 //add cate
-// Route::post('/pages/add-category', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('pages.addcategory');
+Route::post('/pages/category/add-category', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('pages.addcategory');
 
 //all cate
-Route::get('/pages/categories', [App\Http\Controllers\CategoryController::class, 'categories'])->name('pages.categories');
+// Route::get('/pages/category/categories', [App\Http\Controllers\CategoryController::class, 'categories']);
+Route::get('/pages/category/categories', [App\Http\Controllers\CategoryController::class, 'categories'])->name('pages.categories');
 
-//add cate chưa xong
-// Route::get('/pages/categories', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('pages.category');
-
+//eidt cate
+Route::get('/pages/category/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('pages.update-category');
 //update cate
+Route::post('/pages/category/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('pages.update-category');
+
 //delete
+Route::get('/pages/category/delete-category/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('pages.delete-category');
 
 
 

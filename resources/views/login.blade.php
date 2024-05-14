@@ -3,59 +3,77 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('custom.css') }}">
-    <title>Home</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Icons -->
+    <link rel="shortcut icon" href="{{ asset('media/favicons/favicon.png') }}">
+    <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/favicons/favicon-192x192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicons/apple-touch-icon-180x180.png') }}">
+    
+
+    <!-- Modules -->
+    @yield('css')
+    @vite(['resources/sass/main.scss', 'resources/js/oneui/app.js'])
+
+    <!-- Alternatively, you can also include a specific color theme after the main stylesheet to alter the default color theme of the template -->
+    {{-- @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/js/oneui/app.js']) --}}
+    @yield('js')
+    <link rel="stylesheet" href="{{ asset('my-style.css')}}">
 </head>
 
 <body>
 
-    <style>
-        #form-login {
-            border: 1px solid;
-            margin-top: 10%;
-            padding: 50px;
-            div {
-                margin-bottom: 20px;
-            }
-            button {
-                margin-top: 20px;
-                width: 25%;
-            }
-        }
-    </style>
-    <form action="{{ route('login') }}" method="post" id="form-login">
-        @csrf
-        <div>
-            <label for="email">Nhập email</label>
-            <input type="text" name="email">
-        </div>
-        <div>
-            <label for="password">Nhập password</label>
-            <input type="password" name="password">
-        </div>
-        <button type="submit">Đăng nhập</button>
-    </form>
-    <footer class="bg-dark text-light text-center py-4 d-none">
-        <div class="container">
+    <!-- Main Container -->
+    <main id="main-container">
+
+        <div class="content">
             <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; 2021 Your Company</p>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#">Home</a></li>
-                        <li class="list-inline-item"><a href="#">About</a></li>
-                        <li class="list-inline-item"><a href="#">Services</a></li>
-                        <li class="list-inline-item"><a href="#">Contact</a></li>
-                    </ul>
+                <div class="col-md-6 m-auto container-login">
+                    <form action="{{ route('login') }}" method="post" id="form-login">
+                        @csrf
+                    <div class="block block-rounded">
+                      <div class="block-header block-header-default">
+                        <h3 class="block-title">Login</h3>
+                        <div class="block-options">
+                          <button type="submit" class="btn btn-sm btn-primary">
+                            Submit
+                          </button>
+                          <button type="reset" class="btn btn-sm btn-alt-primary">
+                            Reset
+                          </button>
+                        </div>
+                      </div>
+                      <div class="block-content">
+                        <div class="row justify-content-center py-sm-3 py-md-5">
+                          <div class="col-sm-10 col-md-8">
+                            <div class="mb-4">
+                              <label class="form-label" for="email">Username</label>
+                              <input type="text" class="form-control form-control-alt" id="block-form1-username" name="email" placeholder="Enter your username..">
+                            </div>
+                            <div class="mb-4">
+                              <label class="form-label" for="password">Password</label>
+                              <input type="password" class="form-control form-control-alt" id="block-form1-password" name="password" placeholder="Enter your password..">
+                            </div>
+                            <div class="mb-4">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="block-form1-remember-me" name="block-form1-remember-me">
+                                <label class="form-check-label" for="block-form1-remember-me">Remember Me?</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
             </div>
         </div>
-    </footer>
+
+    </main>
+    <!-- END Main Container -->
+
+    <script src="/js/oneui.app.min.js"></script>
 </body>
 
 </html>

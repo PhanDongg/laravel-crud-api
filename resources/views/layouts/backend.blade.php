@@ -16,6 +16,8 @@
   <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/favicons/favicon-192x192.png') }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicons/apple-touch-icon-180x180.png') }}">
 
+   <link rel="stylesheet" href="{{ asset('/my-style.css')}}">;
+   
   <!-- Modules -->
   @yield('css')
   @vite(['resources/sass/main.scss', 'resources/js/oneui/app.js'])
@@ -23,6 +25,8 @@
   <!-- Alternatively, you can also include a specific color theme after the main stylesheet to alter the default color theme of the template -->
   {{-- @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/js/oneui/app.js']) --}}
   @yield('js')
+
+ 
 </head>
 
 <body>
@@ -243,7 +247,7 @@
               </a>
             </li>
             <li class="nav-main-item">
-              <a class="nav-main-link{{ request()->is('pages/categories') ? ' active' : '' }}" href="/pages/categories">
+              <a class="nav-main-link{{ request()->is('pages/category/categories') ? ' active' : '' }}" href="/pages/category/categories">
                 <span class="nav-main-link-name">Category</span>
               </a>
             </li>
