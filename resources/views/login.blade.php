@@ -42,6 +42,9 @@
                           <button type="reset" class="btn btn-sm btn-alt-primary">
                             Reset
                           </button>
+                          <button class="btn btn-sm btn-warning">
+                            <a href=" ">Register</a>
+                          </button>
                         </div>
                       </div>
                       <div class="block-content">

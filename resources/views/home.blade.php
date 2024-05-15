@@ -192,6 +192,7 @@
             <div class="row items-push">
                 {{-- $post này là ở index() trong postscontroller, để trỏ tới các cột trong moduels/post --}}
                 @foreach ($posts as $post)
+                    @if($post->status == 'Publish')
                     <div class="col-lg-4">
                         <!-- Story -->
                         <a class="block block-rounded block-link-pop h-100 mb-0 overflow-hidden"
@@ -200,14 +201,15 @@
       
                             {{-- các dữ liệu ở đây được lấy ra từ  model post --}}
                             <div class="block-content">
-                                <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
-                                <h3 class="mt-3">{{ $post->title }}</h3>
-                                <p>{{ $post->content }}</p>
-                                <p>{{ $post->author }}</p>
+                                    <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
+                                    <h3 class="mt-3">{{ $post->title }}</h3>
+                                    <p>{{ $post->content }}</p>
+                                    <p>{{ $post->author }}</p>
                             </div>
                         </a>
                         <!-- END Story -->
                     </div>
+                    @endif
                 @endforeach
             </div>
             <!-- END Cover Link Stories -->

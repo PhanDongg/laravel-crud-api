@@ -30,15 +30,16 @@ Route::view('/pages/datatables', 'pages.datatables');
 Route::view('/pages/blank', 'pages.blank');
 
 Route::view('/pages/posts', 'pages.posts');
-Route::view('/pages/add-post', 'pages.addpost');
+//Route::view('/pages/add-post', 'pages.addpost');
 
 Route::view('/pages/category/categories', 'pages.categories');
 
 //POST
 //route add post
 // Route::post('/pages/add-post', [App\Http\Controllers\PostController::class, 'categories'])->name('pages.addpost');
-Route::post('/pages/add-post', [App\Http\Controllers\PostsController::class, 'add_post'])->name('pages.addpost');
+Route::post('/pages/add-post', [App\Http\Controllers\PostsController::class, 'addPost'])->name('pages.addpost');
 //route all post
+Route::get('/pages/add-post', [App\Http\Controllers\PostsController::class, 'addForm'])->name('posts.new');
 Route::get('/pages/posts', [App\Http\Controllers\PostsController::class, 'posts'])->name('pages.posts');//VIEW CHÍNH
 
 //đầu tiên phải chỉnh sửa và sau đó mới cập nhật
@@ -77,16 +78,24 @@ Route::get('/pages/category/delete-category/{id}', [App\Http\Controllers\Categor
 
 
 
-Route::get('/home-login', function () {
+Route::get('/login', function () {
     return view('login');
-})->name('home-login');
+})->name('login');
 
-//login
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
+Route::get('/register', function()
+{
+    return view('register');
+});
 
-//loguot
-Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+// //login
+// Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
+
+// //loguot
+// Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+
+// PHẦN NÀY LÀ CỦA TASK TRƯỚC
 
 // route admin
 Route::middleware('auth.admin')->prefix('admin')->group(function () {
