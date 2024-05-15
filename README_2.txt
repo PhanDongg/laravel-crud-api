@@ -15,40 +15,13 @@ phpadmin
 - DB_USERNAME=root
 - DB_PASSWORD=123456789
 
-web
-- danh sách user : http://127.0.0.1:8000/users/
-- thêm user: http://127.0.0.1:8000/users/create
-- chỉnh sửa user: http://127.0.0.1:8000/users/update/28
-- xóa user: button delete
-
-api
-- http://127.0.0.1:8000/api/users
-
-NGÀY 1:
-- Cài đặt xampp
-- Cài đặt composer
-NGÀY 2:
-- Tìm hiểu về cấu trúc folder laravel
-NGÀY 3:
-- Áp dụng css,js,bootstrap vào dự án
-- Thực hiện các thao tác CRUD user
-NGÀY 4:
-- Thực hiện login, loguot
-- Authen, author: chưa hoàn thành
-NGÀY 5:
-- Tiếp tục thực hiện authen, author
-- Tìm hiều về database/seeders
-- Tìm hiểu về laravel starter kit
-
-
-
-
-authen author
-- làm vể hệ thống quản lí bài viết
-- người dùng có thể đăng nhập, đăng kí, tạo bài viết và chỉ có thể chỉnh sửa hoặc xóa bài viết mà họ đã tạo
-- chức năng chính:
-1. đăng nhập và đăng kí người dùng
-2. tạo, chỉnh sửa và xóa bài viết
-3. chỉ cho phép người dùng chỉnh sửa , xóa bài viết mà họ đã tạo
+- routes
+    home: http://127.0.0.1:8000/
+    rigister: http://127.0.0.1:8000/register
+    login: http://127.0.0.1:8000/login
+    dashboard: http://127.0.0.1:8000/dashboard
+    all post: http://127.0.0.1:8000/admin/posts
+    add post: http://127.0.0.1:8000/admin/add-post
+    category: http://127.0.0.1:8000/admin/categories
 
 

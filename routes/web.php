@@ -51,28 +51,29 @@ Route::get('/error', function()
 Route::middleware('auth.admin')->prefix('admin')->group(function () {
     //POST
     //route add post
-    Route::post('/add-post', [App\Http\Controllers\PostController::class, 'addPost'])->name('add.post');
+    Route::post('/add-post', [App\Http\Controllers\PostController::class, 'addPost'])->name('post.addpost');
     //route all post
-    Route::get('/add-post', [App\Http\Controllers\PostController::class, 'addForm'])->name('add.post');
+    Route::get('/add-post', [App\Http\Controllers\PostController::class, 'addForm'])->name('post.addpost');//xử lí slect option cate
     Route::get('/posts', [App\Http\Controllers\PostController::class, 'posts'])->name('posts');//VIEW CHÍNH ok
     //edit post
     Route::get('/update/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.update');
     //update post
     Route::post('/update/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+    Route::post('/update/{id}', [App\Http\Controllers\PostController::class, 'updateCate'])->name('post.update');
     //delete post
     Route::get('/delete/{id}', [App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
 
     //CATEGORY
     //add cate
-    Route::post('/category/add-category', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('cate.addcategory');
+    Route::post('/add-category', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('cate.addcategory');
     //all cate
-    Route::get('/category/categories', [App\Http\Controllers\CategoryController::class, 'categories'])->name('cate.categories');
+    Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'categories'])->name('cate.categories');
     //eidt cate
-    Route::get('/category/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('cate.update-category');
+    Route::get('/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('cate.update-category');
     //update cate
-    Route::post('/category/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('cate.update-category');
+    Route::post('/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('cate.update-category');
     //delete
-    Route::get('/category/delete-category/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('cate.delete-category');
+    Route::get('/delete-category/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('cate.delete-category');
 });
 
 // author admin

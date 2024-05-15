@@ -6,7 +6,6 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\
 
 class CheckLoginAdmin
 {
