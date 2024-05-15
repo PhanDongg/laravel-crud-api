@@ -230,24 +230,27 @@
               </a>
             </li>
             <li class="nav-main-heading">Phan Đông add new</li>
-            <li class="nav-main-item">
-              <a class="nav-main-link{{ request()->is('pages/posts') ? ' active' : '' }}" href="/pages/posts">
+            {{-- <li class="nav-main-item">
+              <a class="nav-main-link{{ request()->is('posts') ? ' active' : '' }}" href="{{ route('posts') }}">
                 <i class="nav-main-link-icon si si-globe"></i>
                 <span class="nav-main-link-name">Post</span>
               </a>
-            </li>
+            </li> --}}
             <li class="nav-main-item">
-              <a class="nav-main-link{{ request()->is('pages/posts') ? ' active' : '' }}" href="/pages/posts">
+              <a class="nav-main-link{{ request()->is('posts') ? ' active' : '' }}" href="{{ route('posts') }}">
+                <i class="nav-main-link-icon si si-globe"></i>
                 <span class="nav-main-link-name">All Posts</span>
               </a>
             </li>
             <li class="nav-main-item">
-              <a class="nav-main-link{{ request()->is('pages/add-post') ? ' active' : '' }}" href="/pages/add-post">
+              <a class="nav-main-link{{ request()->is('add-post') ? ' active' : '' }}" href="{{ route('add.post') }}">
+                <i class="nav-main-link-icon si si-globe"></i>
                 <span class="nav-main-link-name">Add New post</span>
               </a>
             </li>
             <li class="nav-main-item">
-              <a class="nav-main-link{{ request()->is('pages/category/categories') ? ' active' : '' }}" href="/pages/category/categories">
+              <a class="nav-main-link{{ request()->is('category/categories') ? ' active' : '' }}" href="{{ route('cate.categories') }}">
+                <i class="nav-main-link-icon si si-globe"></i>
                 <span class="nav-main-link-name">Category</span>
               </a>
             </li>

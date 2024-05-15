@@ -165,7 +165,7 @@
     <main id="main-container">
         <!-- Hero -->
         <div class="bg-image" style="background-image: url('/media/photos/photo39@2x.jpg');">
-            <div class="bg-primary-dark-op py-9 overflow-hidden">
+            <div class=" py-9 overflow-hidden">
                 <div class="content content-full text-center">
                     <h1 class="display-4 fw-semibold text-white mb-2">
                         Hero Title
@@ -190,12 +190,12 @@
             <!-- Cover Link Stories -->
             <h2 class="content-heading">Blog</h2>
             <div class="row items-push">
-                {{-- $post này là ở index() trong postscontroller, để trỏ tới các cột trong moduels/post --}}
+                {{-- $post này là ở index() trong PostController, để trỏ tới các cột trong moduels/post --}}
                 @foreach ($posts as $post)
                     @if($post->status == 'Publish')
                     <div class="col-lg-4">
                         <!-- Story -->
-                        <a class="block block-rounded block-link-pop h-100 mb-0 overflow-hidden"
+                        <div class="block block-rounded block-link-pop h-100 mb-0 overflow-hidden"
                             href="javascript:void(0)">
                             <img class="img-fluid" src="assets/media/photos/photo25@2x.jpg" alt="">
       
@@ -206,7 +206,8 @@
                                     <p>{{ $post->content }}</p>
                                     <p>{{ $post->author }}</p>
                             </div>
-                        </a>
+                            <a href="{{ route('post-detail', ['id' => $post->id]) }}" class="mx-4" target="_blank">Read More</a>
+                        </div>
                         <!-- END Story -->
                     </div>
                     @endif

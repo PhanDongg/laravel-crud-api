@@ -3,9 +3,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +16,9 @@ use App\Http\Controllers\PostsController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::get('/', 'PostsController@index');//tại sao thằng này ko được mà thằng dưới lại đc
-Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('home');
 
 //  Routes defaut
-// Route::view('/', 'landing');
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');
 });
@@ -29,108 +26,58 @@ Route::view('/pages/slick', 'pages.slick');
 Route::view('/pages/datatables', 'pages.datatables');
 Route::view('/pages/blank', 'pages.blank');
 
-Route::view('/pages/posts', 'pages.posts');
-//Route::view('/pages/add-post', 'pages.addpost');
-
 Route::view('/pages/category/categories', 'pages.categories');
 
-//POST
-//route add post
-// Route::post('/pages/add-post', [App\Http\Controllers\PostController::class, 'categories'])->name('pages.addpost');
-Route::post('/pages/add-post', [App\Http\Controllers\PostsController::class, 'addPost'])->name('pages.addpost');
-//route all post
-Route::get('/pages/add-post', [App\Http\Controllers\PostsController::class, 'addForm'])->name('posts.new');
-Route::get('/pages/posts', [App\Http\Controllers\PostsController::class, 'posts'])->name('pages.posts');//VIEW CHÍNH
-
-//đầu tiên phải chỉnh sửa và sau đó mới cập nhật
-//edit post
-Route::get('/pages/update/{id}', [App\Http\Controllers\PostsController::class, 'edit'])->name('pages.update');
-//update post
-Route::post('/pages/update/{id}', [App\Http\Controllers\PostsController::class, 'update'])->name('pages.update');
-
-//delete post
-Route::get('/pages/delete/{id}', [App\Http\Controllers\PostsController::class, 'delete'])->name('pages.delete');
-
-
-//CATEGORY
-//add cate
-Route::post('/pages/category/add-category', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('pages.addcategory');
-
-//all cate
-// Route::get('/pages/category/categories', [App\Http\Controllers\CategoryController::class, 'categories']);
-Route::get('/pages/category/categories', [App\Http\Controllers\CategoryController::class, 'categories'])->name('pages.categories');
-
-//eidt cate
-Route::get('/pages/category/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('pages.update-category');
-//update cate
-Route::post('/pages/category/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('pages.update-category');
-
-//delete
-Route::get('/pages/category/delete-category/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('pages.delete-category');
-
-
-
-
-
-
-
-
-
-
-
+//login
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 
-Route::get('/register', function()
+//loguot
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+//create user
+Route::get('/register', [App\Http\Controllers\UserController::class, 'create'])->name('register');
+Route::post('/register', [App\Http\Controllers\UserController::class, 'store'])->name('complete.register');
+
+//error
+Route::get('/error', function()
 {
-    return view('register');
-});
+    return view('op_error_500');
+})->name('error');
 
-
-// //login
-// Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
-
-// //loguot
-// Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-
-
-// PHẦN NÀY LÀ CỦA TASK TRƯỚC
-
-// route admin
+// author admin
 Route::middleware('auth.admin')->prefix('admin')->group(function () {
-// Route::prefix('admin')->group(function () {
-    // Route::get('/login', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+    //POST
+    //route add post
+    Route::post('/add-post', [App\Http\Controllers\PostController::class, 'addPost'])->name('add.post');
+    //route all post
+    Route::get('/add-post', [App\Http\Controllers\PostController::class, 'addForm'])->name('add.post');
+    Route::get('/posts', [App\Http\Controllers\PostController::class, 'posts'])->name('posts');//VIEW CHÍNH ok
+    //edit post
+    Route::get('/update/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.update');
+    //update post
+    Route::post('/update/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+    //delete post
+    Route::get('/delete/{id}', [App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
 
-    //create user
-    Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create']);
-    Route::post('/users/create', [App\Http\Controllers\UserController::class, 'store']);
-
-    // update user
-    Route::get('/users/update/{id}', [App\Http\Controllers\UserController::class, 'edit']);
-    Route::post('/users/update/{id}', [App\Http\Controllers\UserController::class, 'update']);
-
-    //delete user
-    Route::get('/users/delete/{id}', [App\Http\Controllers\UserController::class, 'delete']);
-
-    // Read user
-    Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users');
-
-    //home dashboard
-    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+    //CATEGORY
+    //add cate
+    Route::post('/category/add-category', [App\Http\Controllers\CategoryController::class, 'add_category'])->name('cate.addcategory');
+    //all cate
+    Route::get('/category/categories', [App\Http\Controllers\CategoryController::class, 'categories'])->name('cate.categories');
+    //eidt cate
+    Route::get('/category/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('cate.update-category');
+    //update cate
+    Route::post('/category/update-category/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('cate.update-category');
+    //delete
+    Route::get('/category/delete-category/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('cate.delete-category');
 });
 
-
-//route user
+// author admin
 Route::middleware('auth.user')->prefix('user')->group(function () {
-
-    //create user
-    Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create']);
-    Route::post('/users/create', [App\Http\Controllers\UserController::class, 'store']);
-
-    // Read user
-    Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users');
-
-    //home dashboard
-    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('user.dashboards');
+//task này chưa dùng tới
 });
+//post detail
+Route::get('/post-detail/{id}', [App\Http\Controllers\PostController::class, 'postDetail'])->name('post-detail');

@@ -14,39 +14,16 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // cách thêm 1 user
-        // User::create([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@example.com',
-        //     'password' => Hash::make('password'),
-        // ]);
-
-        //cách hêm nhiều users
         $users = [
             [
-                'name' => 'User 1',
-                'email' => 'user1@example.com',
+                'email' => 'admin@example.com',
                 'password' => Hash::make('password'),
+                'role' => "admin",
             ],
             [
-                'name' => 'User 2',
-                'email' => 'user2@example.com',
+                'email' => 'user@example.com',
                 'password' => Hash::make('password'),
-            ],
-            [
-                'name' => 'User 3',
-                'email' => 'user3@example.com',
-                'password' => Hash::make('password'),
-            ],
-            [
-                'name' => 'User 4',
-                'email' => 'user4@example.com',
-                'password' => Hash::make('password'),
-            ],
-            [
-                'name' => 'User 5',
-                'email' => 'user5@example.com',
-                'password' => Hash::make('password'),
+                'role' => 'user'
             ],
         ];
 
