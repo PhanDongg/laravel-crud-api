@@ -59,7 +59,6 @@ Route::middleware('auth.admin')->prefix('admin')->group(function () {
     Route::get('/update/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.update');
     //update post
     Route::post('/update/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
-    Route::post('/update/{id}', [App\Http\Controllers\PostController::class, 'updateCate'])->name('post.update');
     //delete post
     Route::get('/delete/{id}', [App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
 

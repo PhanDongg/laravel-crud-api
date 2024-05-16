@@ -165,7 +165,7 @@
     <main id="main-container">
         <!-- Hero -->
         <div class="bg-image" style="background-image: url('/media/photos/photo39@2x.jpg');">
-            <div class=" py-9 overflow-hidden">
+            <div class="py-9 overflow-hidden">
                 <div class="content content-full text-center">
                     <h1 class="display-4 fw-semibold text-white mb-2">
                         Hero Title
@@ -186,35 +186,18 @@
         </div>
         <!-- END Hero -->
 
-        <div class="content">
-            <!-- Cover Link Stories -->
-            <h2 class="content-heading">Blog</h2>
-            <div class="row items-push">
-                {{-- $post này là ở index() trong PostController, để trỏ tới các cột trong moduels/post --}}
-                @foreach ($posts as $post)
-                    @if($post->status == 'Publish')
-                    <div class="col-lg-4">
-                        <!-- Story -->
-                        <div class="block block-rounded block-link-pop h-100 mb-0 overflow-hidden"
-                            href="javascript:void(0)">
-                            {{-- <img class="img-fluid" src="assets/media/photos/photo25@2x.jpg" alt=""> --}}
-      
-                            {{-- các dữ liệu ở đây được lấy ra từ  model post --}}
-                            <div class="block-content">
-                                    <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
-                                    <h3 class="mt-3">{{ $post->title }}</h3>
-                                    <p>{{ $post->content }}</p>
-                                    <p>{{ $post->author }}</p>
-                            </div>
-                            <a href="{{ route('post-detail', ['id' => $post->id]) }}" class="mx-4" target="_blank">Read More</a>
-                        </div>
-                        <!-- END Story -->
-                    </div>
-                    @endif
-                @endforeach
+    <div class="block-content">
+        <div class="d-flex">
+            <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
+            <div class="px-5">
+                <h3 class="mt-3">{{ $post->title }}</h3>
+                <p>{{ $post->content }}</p>
+                <p>{{ $post->author }}</p>
             </div>
-            <!-- END Cover Link Stories -->
+
         </div>
+    </div>
+
 
     </main>
     <!-- END Main Container -->
@@ -328,7 +311,7 @@
         </div>
     </footer>
     <!-- END Footer -->
-    {{-- <script src="/js/oneui.app.min.js"></script> --}}
+    <script src="/js/oneui.app.min.js"></script>
 </body>
 
 </html>

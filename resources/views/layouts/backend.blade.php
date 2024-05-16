@@ -230,12 +230,6 @@
               </a>
             </li>
             <li class="nav-main-heading">Phan Đông add new</li>
-            {{-- <li class="nav-main-item">
-              <a class="nav-main-link{{ request()->is('posts') ? ' active' : '' }}" href="{{ route('posts') }}">
-                <i class="nav-main-link-icon si si-globe"></i>
-                <span class="nav-main-link-name">Post</span>
-              </a>
-            </li> --}}
             <li class="nav-main-item">
               <a class="nav-main-link{{ request()->is('posts') ? ' active' : '' }}" href="{{ route('posts') }}">
                 <i class="nav-main-link-icon si si-globe"></i>

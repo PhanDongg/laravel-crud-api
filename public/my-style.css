@@ -1,0 +1,10 @@
+.ck-editor__editable_inline {
+    height: 200px !important;
+}
+.container-login {
+    margin-top: 10% !important;
+}
+div#DataTables_Table_0_wrapper > .row:first-child .col-sm-12:last-child{
+    text-align: right;
+    margin-bottom: 10px;
+}

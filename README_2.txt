@@ -24,4 +24,8 @@ phpadmin
     add post: http://127.0.0.1:8000/admin/add-post
     category: http://127.0.0.1:8000/admin/categories
 
+information
+    admin : admin@example.com/752
+    user:   user@example.com/752
+
 
