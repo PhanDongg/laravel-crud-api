@@ -206,7 +206,8 @@
                                     <p>{{ $post->content }}</p>
                                     <p>{{ $post->author }}</p>
                             </div>
-                            <a href="{{ route('post-detail', ['id' => $post->id]) }}" class="mx-4" target="_blank">Read More</a>
+                            {{-- <a href="{{ route('post-detail', ['id' => $post->id]) }}" class="mx-4" target="_blank">Read More</a> --}}
+                            <a href="{{ route('post-detail', ['slug' => $post->slug]) }}" class="mx-4" target="_blank">Read More</a>
                         </div>
                         <!-- END Story -->
                     </div>

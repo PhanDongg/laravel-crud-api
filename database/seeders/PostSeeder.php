@@ -21,7 +21,7 @@ class PostSeeder extends Seeder
     {
         $posts = [
             [
-                'title' => 'Capabilities',
+                'title' => 'Capabilities Today',
                 'description' => 'We tirelessly troubleshoot to eliminate choke points',
                 'content' => 'We tirelessly troubleshoot to eliminate choke points, prevent stock depletion, streamline unnecessary redundancies, and make delays a thing of the past.',
                 'author' => 'David Đông',
@@ -34,7 +34,7 @@ class PostSeeder extends Seeder
 
             ],
             [
-                'title' => 'Mission',
+                'title' => 'Mission Today',
                 'description' => 'Our mission is to design, build and implement innovative.',
                 'content' => 'We tirelessly troubleshoot to eliminate choke points, prevent stock depletion, streamline unnecessary redundancies, and make delays a thing of the past.',
                 'author' => 'David Đông',
@@ -46,7 +46,7 @@ class PostSeeder extends Seeder
                 // 'category_id' => 2, // Khóa ngoại trỏ đến category có id = 2
             ],
             [
-                'title' => 'Vision',
+                'title' => 'Vision Today',
                 'description' => 'APL Logistics seeks to be a premier, profitable provider of global supply-chain services to help enable sustainable trade.',
                 'content' => 'We tirelessly troubleshoot to eliminate choke points, prevent stock depletion, streamline unnecessary redundancies, and make delays a thing of the past.',
                 'author' => 'David Đông',
@@ -58,7 +58,7 @@ class PostSeeder extends Seeder
                 // 'category_id' => 2, // Khóa ngoại trỏ đến category có id = 2
             ],
             [
-                'title' => 'Vision',
+                'title' => 'Vision Today',
                 'description' => 'APL Logistics seeks to be a premier, profitable provider of global supply-chain services to help enable sustainable trade.',
                 'content' => 'We tirelessly troubleshoot to eliminate choke points, prevent stock depletion, streamline unnecessary redundancies, and make delays a thing of the past.',
                 'author' => 'David Đông',

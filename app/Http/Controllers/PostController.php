@@ -84,10 +84,15 @@ class PostController extends Controller
         return view('home', compact('posts'));
     }
     //post detail
-    public function postDetail($id)
-    {
-        $post = Post::find($id);
-        return view('posts/post-detail', ['post' => $post]);
-    }
+    // public function postDetail($id)
+    // {
+    //     $post = Post::find($id);
+    //     return view('posts/post-detail', ['post' => $post]);
+    // }
+    public function postDetail($slug)
+{
+    $post = Post::where('slug', $slug)->first();
+    return view('posts/post-detail', ['post' => $post]);
+}
     
 }
