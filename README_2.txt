@@ -8,6 +8,8 @@ KHI CLONE GIT VỀ CHẠY LỆNH
 - php artisan migrate
 - npm install
 - php artisan serve
+- seeder tạo bảng category trước
+- seeder tạo bảng post sau
 
 
 phpadmin
@@ -25,7 +27,7 @@ phpadmin
     category: http://127.0.0.1:8000/admin/categories
 
 information
-    admin : admin@example.com/752
-    user:   user@example.com/752
+    admin : admin@example.com/password
+    user:   user@example.com/password
 
 
