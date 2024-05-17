@@ -30,7 +30,7 @@ class PostSeeder extends Seeder
                 'created_at' => Carbon::now(),//có cả giờ
                 'updated_at' => Carbon::now(),
                 'image' => 'images/unnamed.jpg',
-                // 'category_id' => 1, // Khóa ngoại trỏ đến category có id = 1
+                'category_id' => 1, // Khóa ngoại trỏ đến category có id = 1
 
             ],
             [
@@ -43,7 +43,7 @@ class PostSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'image' => 'images/unnamed.jpg',
-                // 'category_id' => 2, // Khóa ngoại trỏ đến category có id = 2
+                'category_id' => 2, // Khóa ngoại trỏ đến category có id = 2
             ],
             [
                 'title' => 'Vision Today',
@@ -55,7 +55,7 @@ class PostSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'image' => 'images/unnamed.jpg',
-                // 'category_id' => 2, // Khóa ngoại trỏ đến category có id = 2
+                'category_id' => 3, // Khóa ngoại trỏ đến category có id = 2
             ],
             [
                 'title' => 'Vision Today',
@@ -67,7 +67,7 @@ class PostSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'image' => 'images/unnamed.jpg',
-                // 'category_id' => 2, // Khóa ngoại trỏ đến category có id = 2
+                'category_id' => 2, // Khóa ngoại trỏ đến category có id = 2
             ],
         ];
         // Post::insert($posts);

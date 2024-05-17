@@ -6,26 +6,29 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
     public function login(Request $request)
     {
+        // dd($request->all());
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             // Authentication passed
             $user = Auth::user();
             if ($user->role == 'admin') {
-                // return redirect()->route('admin/users');
                 return redirect()->intended('/dashboard');
             } elseif ($user->role == 'user') {
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('/');
             }
         } else {
-            return redirect()->back()->with('error', 'Đăng nhập không thành công');
+            return back()->with('error', 'Đăng nhập không thành công');
         }  
     }
+
+
 
     public function logout()
     {

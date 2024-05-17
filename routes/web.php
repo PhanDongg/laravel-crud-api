@@ -26,7 +26,7 @@ Route::view('/pages/slick', 'pages.slick');
 Route::view('/pages/datatables', 'pages.datatables');
 Route::view('/pages/blank', 'pages.blank');
 
-Route::view('/pages/category/categories', 'pages.categories');
+// Route::view('/pages/category/categories', 'pages.categories');
 
 //login
 Route::get('/login', function () {
@@ -78,7 +78,9 @@ Route::middleware('auth.admin')->prefix('admin')->group(function () {
 // author admin
 Route::middleware('auth.user')->prefix('user')->group(function () {
 //task này chưa dùng tới
+    
 });
+
 //post detail
 // Route::get('/post-detail/{id}', [App\Http\Controllers\PostController::class, 'postDetail'])->name('post-detail');
 Route::get('/post-detail/{slug}', [App\Http\Controllers\PostController::class, 'postDetail'])->name('post-detail');

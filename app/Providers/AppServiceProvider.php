@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
+     * phần này cài đặt cho ngrok
      */
     public function boot(): void
     {

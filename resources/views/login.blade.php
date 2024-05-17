@@ -26,11 +26,16 @@
 
     <!-- Main Container -->
     <main id="main-container">
+      @if(Session::has('error'))
+      <div class="alert alert-danger" role="alert">
+        <strong>{{ Session::get('error')}}</strong>
+      </div>
+      @endif
 
         <div class="content">
             <div class="row">
                 <div class="col-md-6 m-auto container-login">
-                    <form action="{{ route('login') }}" method="post" id="form-login">
+                    <form action="{{ route('login') }}" method="post" id="form-login" enctype="multipart/form-data">
                         @csrf
                     <div class="block block-rounded">
                       <div class="block-header block-header-default">
@@ -76,7 +81,7 @@
     </main>
     <!-- END Main Container -->
 
-    <script src="/js/oneui.app.min.js"></script>
+    {{-- <script src="/js/oneui.app.min.js"></script> --}}
 </body>
 
 </html>

@@ -50,6 +50,11 @@
               <label class="pt-2 pb-2" for="">Author</label><br>
               <input name="author" type="text" class="form-control" id="example-text-input" name="example-text-input" value="{{ $post->author }}">
             </div>
+            <label class="mx-4 pt-2 pb-2" for="cars">Status</label>
+            <select name="status">
+              <option value="Draft">Draft</option>
+              <option value="Publish">Publish</option>
+            </select>
             <div class="mx-4 pt-2 pb-2">
               <label for="cars">Category: </label>
               <select name="category" id="cars">
