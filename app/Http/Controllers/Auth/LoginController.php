@@ -13,6 +13,14 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         // dd($request->all());
+        //validation
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ], 
+        [
+            'password.required' => 'Please enter a password',
+        ]);
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {

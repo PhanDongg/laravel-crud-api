@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('slug')->nullable();
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             // thằng này để mapping mqh trong table
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

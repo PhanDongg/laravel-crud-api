@@ -26,11 +26,11 @@
 
     <!-- Main Container -->
     <main id="main-container">
-      @if(Session::has('error'))
+      {{-- @if(Session::has('error'))
       <div class="alert alert-danger" role="alert">
         <strong>{{ Session::get('error')}}</strong>
       </div>
-      @endif
+      @endif --}}
 
         <div class="content">
             <div class="row">
@@ -77,6 +77,16 @@
                 </div>
             </div>
         </div>
+
+        @if ($errors->any())
+        <div class="alert alert-danger text-center">
+          <ul style="list-style-type: none;">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
     </main>
     <!-- END Main Container -->

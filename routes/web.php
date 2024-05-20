@@ -21,12 +21,10 @@ Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('ho
 //  Routes defaut
 Route::match(['get', 'post'], '/dashboard', function(){
     return view('dashboard');
-});
+})->name('doashboard');
 Route::view('/pages/slick', 'pages.slick');
 Route::view('/pages/datatables', 'pages.datatables');
 Route::view('/pages/blank', 'pages.blank');
-
-// Route::view('/pages/category/categories', 'pages.categories');
 
 //login
 Route::get('/login', function () {
@@ -75,7 +73,7 @@ Route::middleware('auth.admin')->prefix('admin')->group(function () {
     Route::get('/delete-category/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('cate.delete-category');
 });
 
-// author admin
+// author user
 Route::middleware('auth.user')->prefix('user')->group(function () {
 //task này chưa dùng tới
     

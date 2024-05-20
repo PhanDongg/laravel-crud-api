@@ -59,9 +59,21 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="javascript:void(0)">
+                            <a class="nav-main-link" href="{{ route('doashboard')}}">
                                 <i class="nav-main-link-icon si si-envelope"></i>
-                                <span class="nav-main-link-name">Contact</span>
+                                <span class="nav-main-link-name">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('login') }}">
+                                <i class="nav-main-link-icon si si-envelope"></i>
+                                <span class="nav-main-link-name">Login</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('register') }}">
+                                <i class="nav-main-link-icon si si-envelope"></i>
+                                <span class="nav-main-link-name">Register</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Extra</li>
@@ -203,7 +215,8 @@
                             <div class="block-content">
                                     <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
                                     <h3 class="mt-3">{{ $post->title }}</h3>
-                                    <p>{{ $post->content }}</p>
+                                    {{-- <p>{{ !!$post->content!! }}</p> --}}
+                                    <p>{!! $post->content !!}</p>
                                     <p>{{ $post->author }}</p>
                             </div>
                             {{-- <a href="{{ route('post-detail', ['id' => $post->id]) }}" class="mx-4" target="_blank">Read More</a> --}}
@@ -230,32 +243,32 @@
                     <ul class="list list-simple-mini">
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #1
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #2
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #3
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i>Industrial
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #4
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #5
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Automotive
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #6
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i>Consumer
                             </a>
                         </li>
                     </ul>
@@ -265,32 +278,32 @@
                     <ul class="list list-simple-mini">
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #1
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #2
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #3
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #4
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #5
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Link #6
+                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
                             </a>
                         </li>
                     </ul>
@@ -298,9 +311,9 @@
                 <div class="col-md-4">
                     <h3>Company</h3>
                     <div class="fs-sm mb-4">
-                        1080 Sunshine Valley, Suite 2563<br>
-                        San Francisco, CA 85214<br>
-                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                        FGC<br>
+                        55 Duy Tan, TP.Vinh, Nghe An.<br>
+                        <abbr title="Phone">P:</abbr> 0972.972.469
                     </div>
                     <h3>Subscribe to our news</h3>
                     <form class="push">
