@@ -173,6 +173,13 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'password' => [
+            'regex' => 'Mật khẩu phải chứa ít nhất một chữ cái in thường, một chữ cái in hoa, một chữ số, một ký tự đặc biệt và có ít nhất 6 ký tự.',
+            'confirmed' => 'Xác nhận lại mật khẩu chưa đúng',
+        ],
+        'password_confirmation' => [
+            // 'regex' => 'Xác nhận lại mật khẩu chưa đúng',
+        ]
     ],
 
     /*

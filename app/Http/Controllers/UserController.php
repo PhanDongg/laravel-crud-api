@@ -17,34 +17,27 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //validation
-        // $inputs = [
-        //     'email'    => 'foo',
-        //     'password' => 'bar',
-        // ];
-        $request->validate([
+
+        $validateData = $request->validate([
             'email'=>'required|email',
-            // 'password' => 'required|min:7',//if nedd add '|confirmed'
             'password' => [
                 'required',
-                'string',
-                'min:10',             // must be at least 10 characters in length
-                'regex:/[a-z]/',      // must contain at least one lowercase letter
-                'regex:/[A-Z]/',      // must contain at least one uppercase letter
-                'regex:/[0-9]/',      // must contain at least one digit
-                'regex:/[@$!%*#?&]/', // must contain a special character
+                'min:6',
+                'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!$#%]).*$/',
+                // 'regex:/^(?=.{12,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!$#%]).{5,}$/'
+                'confirmed'
             ],
+            'password_confirmation' => 'required',
         ]);
-        // $validation = \Validator::make( $inputs, $rules );
-
-        // if ( $validation->fails() ) {
-        //     print_r( $validation->errors()->all() );
-        // }
-
         
-        $data = $request->all();
-        $data['password'] = Hash::make($request->password);
-        User::create($data);
-        $users = User::all();
+        //hash password and create user
+        $validateData['password'] = Hash::make($validateData['password']);
+        User::create($validateData);
+
+        // $data = $request->all();
+        // $data['password'] = Hash::make($request->password);
+        // User::create($data);
+        // $users = User::all();
         return redirect()->route('login');
     }
 

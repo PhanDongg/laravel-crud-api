@@ -53,7 +53,7 @@
                                             <input type="text" class="form-control form-control-alt"
                                                 id="block-form1-username" name="email"
                                                 placeholder="Enter your username..">
-                                                 {{-- display validation --}}
+                                            {{-- display validation --}}
                                             @if ($errors->has('email'))
                                                 <ul style="list-style-type: none; font-size: 12px;">
                                                     @foreach ($errors->get('email') as $error)
@@ -67,7 +67,7 @@
                                             <input type="password" class="form-control form-control-alt"
                                                 id="block-form1-password" name="password"
                                                 placeholder="Enter your password..">
-                                                @if ($errors->has('password'))
+                                            @if ($errors->has('password'))
                                                 <ul style="list-style-type: none; font-size: 12px;">
                                                     @foreach ($errors->get('password') as $error)
                                                         <li style="color: red;">{{ $error }}</li>
@@ -75,10 +75,20 @@
                                                 </ul>
                                             @endif
                                         </div>
-                                        {{-- <div class="mb-4">
-                                          <label class="form-label" for="val-confirm-password">Confirm Password <span class="text-danger">*</span></label>
-                                          <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password">
-                                        </div> --}}
+                                        <div class="mb-4">
+                                            <label class="form-label" for="password_confirmation">Confirm
+                                                Password</label>
+                                            <input type="password" class="form-control form-control-alt"
+                                                id="block-form1-password-confirmation" name="password_confirmation"
+                                                placeholder="Confirm your password..">
+                                            @if ($errors->has('password_confirmation'))
+                                                <ul style="list-style-type: none; font-size: 12px;">
+                                                    @foreach ($errors->get('password_confirmation') as $error)
+                                                        <li style="color: red;">{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </div>
                                         <div class="mb-4">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
@@ -96,7 +106,11 @@
                 </div>
             </div>
         </div>
-
+        <div class="text-center">
+            <p>Example account</p>
+            <p>Email: phandong@email.com</p>
+            <p>Password: Pass123!$Test</p>
+        </div>
     </main>
     <!-- END Main Container -->
 
