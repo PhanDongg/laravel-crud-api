@@ -18,6 +18,11 @@
     <!-- Alternatively, you can also include a specific color theme after the main stylesheet to alter the default color theme of the template -->
     {{-- @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/js/oneui/app.js']) --}}
     @yield('js')
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="/js/plugins/raty-js/jquery.raty.css">
+
+    {{-- <script src="/js/oneui.app.min.js"></script> --}}
 </head>
 
 <body>
@@ -186,19 +191,73 @@
         </div>
         <!-- END Hero -->
 
-    <div class="block-content">
-        <div class="d-flex">
-            <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
-            <div class="px-5">
-                <h3 class="mt-3">{{ $post->title }}</h3>
-                <p>{{ $post->content }}</p>
-                <p>{{ $post->author }}</p>
+        {{-- display post --}}
+        <div class="block-content">
+            <div class="d-flex">
+                {{-- <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image"> --}}
+                <div class="px-5">
+                    <h3 class="mt-3">{{ $post->title }}</h3>
+                    <p>{{ $post->content }}</p>
+                    <p>{{ $post->author }}</p>
+                </div>
+
             </div>
-
+            <div class="col-md-6">
+                <!-- Simple -->
+                <h4 class="border-bottom pb-2">Simple</h4>
+                <p class="fs-sm text-muted mb-2">
+                    Setting up rating is just a class away
+                </p>
+                <div class="js-rating"></div>
+                <!-- END Simple -->
+            </div>
+            <div class="mx-4 pt-2 pb-2">
+                <p>Number of views: {{ $post->view_count }} view.</p>
+            </div>
+            <div class="mx-4 pt-2 pb-2">
+                <div>
+                    @foreach ($comments as $comment)
+                        @if ($loop->first)
+                            <p class="text-danger">List comments</p>
+                        @endif
+                        <h5>Readers: {{ $comment->name }}</h5>
+                        <p>Content: {{ $comment->content }}</p>
+                    @endforeach
+                </div>
+                <form action="{{ route('post.post-detail', ['slug' => $post->slug]) }}" method="post"
+                    enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="pt-2 pb-2">
+                            <label class="pt-2 pb-2" for="">Name</label><br>
+                            <input name="name" type="text" class="form-control" id="example-text-input"
+                                placeholder="Your name">
+                        </div>
+                        <div class="">
+                            <label class="pt-2 pb-2" for="">Comment</label><br>
+                            <textarea name="content" class="form-control" id="example-textarea-input" rows="4"
+                                placeholder="Enter comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center pt-2 pb-2">
+                        <button class="mx-7 btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+        {{-- end display post --}}
 
 
+        12321
+        <div class="col-md-6">
+            <!-- Simple -->
+            <h4 class="border-bottom pb-2">Simple</h4>
+            <p class="fs-sm text-muted mb-2">
+                Setting up rating is just a class away
+            </p>
+            <div class="js-rating"></div>
+            <!-- END Simple -->
+        </div>
     </main>
     <!-- END Main Container -->
 
@@ -311,7 +370,16 @@
         </div>
     </footer>
     <!-- END Footer -->
-    <script src="/js/oneui.app.min.js"></script>
+    {{-- <script src="/build/assets/js/oneui.app.min.js"></script> --}}
+
+    <!-- jQuery (required for jQuery Raty plugin) -->
+    <script src="/js/lib/jquery.min.js"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="/js/plugins/raty-js/jquery.raty.js"></script>
+
+    <!-- Page JS Code -->
+    {{-- <script src="/js/pages/be_comp_rating.min.js"></script> --}}
 </body>
 
 </html>

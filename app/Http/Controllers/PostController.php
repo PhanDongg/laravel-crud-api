@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
@@ -56,9 +57,9 @@ class PostController extends Controller
         $data = $request->all();
         if ($request->hasFile('image')) {
             $pathImage = storage_path('public/images');
-            if(!file_exists($pathImage)){
+            if (!file_exists($pathImage)) {
                 //Tạo thư mục nếu không tồn tại
-                mkdir($pathImage,'0775',true);
+                mkdir($pathImage, '0775', true);
             }
             $imagePath = $request->file('image')->store('images', 'public');
             $data['image'] = $imagePath;
@@ -84,15 +85,40 @@ class PostController extends Controller
         return view('home', compact('posts'));
     }
     //post detail
-    // public function postDetail($id)
-    // {
-    //     $post = Post::find($id);
-    //     return view('posts/post-detail', ['post' => $post]);
-    // }
     public function postDetail($slug)
-{
-    $post = Post::where('slug', $slug)->first();
-    return view('posts/post-detail', ['post' => $post]);
-}
-    
+    {
+        $post = Post::where('slug', $slug)->first();
+        // Tăng view_count lên 1
+        $post->view_count += 1;
+        $post->save();
+
+        $listComments = $post->comments;
+        return view('posts.post-detail', ['post' => $post, 'comments' => $listComments]); //còn trường hợp ko có cmt nữa
+    }
+
+    //add comment
+    public function addComment($slug, Request $request)
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        $validatedData = $request->validate([
+            'content' => 'required|string',
+        ]);
+
+        // Tạo một bản ghi Comment mới
+        $add_comment = new Comment();
+        $add_comment->content = $validatedData['content'];
+
+        // Gán post_id cho comment bằng id của bài post tương ứng
+        $add_comment->post_id = $post->id;
+        $add_comment->name = $request->input('name');
+        $add_comment->save();
+        //lấy ra tất cả comment, có cả cái mới thêm
+        $listComments = optional($post->comments)->all();
+        if (!empty($listComments)) {
+            return view('posts.post-detail', ['post' => $post, 'comments' => $listComments]);
+        } else {
+            return view('posts.post-detail', ['post' => $post]);
+        }
+    }
 }

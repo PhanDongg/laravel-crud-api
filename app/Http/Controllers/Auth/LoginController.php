@@ -24,7 +24,6 @@ class LoginController extends Controller
                 'password.required' => 'Please enter a password',
             ]
         );
-        $credentials = $request->only('email', 'password');
 
         //kiểm tra tài khoản email có trong database hay không
         $checkUser = User::where('email', $validateAccount['email'])->first();
@@ -37,6 +36,8 @@ class LoginController extends Controller
             return back()->withInput()->withErrors(['password' => 'Mật khẩu không chính xác !']);
         }
 
+        //kiểm tra trong data
+        $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed
             $user = Auth::user();
@@ -49,8 +50,6 @@ class LoginController extends Controller
             return back()->with('error', 'Đăng nhập không thành công');
         }
     }
-
-
 
     public function logout()
     {

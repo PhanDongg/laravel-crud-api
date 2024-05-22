@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('slug')->nullable();
             $table->string('image')->nullable();
+            $table->integer('view_count')->default(0);
             $table->unsignedBigInteger('category_id')->nullable();
-            // thằng này để mapping mqh trong table
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');// thằng này để mapping mqh với category table
             $table->timestamps();
         });
     }
@@ -33,6 +33,13 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // gốc
         Schema::dropIfExists('posts');
+
+        //mới thêm, dùng để xóa cột view_count(nếu cần)
+        // Schema::table('posts', function (Blueprint $table) {
+        //     $table->dropColumn('view_count');
+        // });
+
     }
 };

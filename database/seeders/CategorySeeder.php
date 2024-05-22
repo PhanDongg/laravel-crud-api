@@ -19,7 +19,6 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //tạo vài category tạm
 
         $categories = [
             [
