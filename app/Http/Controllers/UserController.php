@@ -16,20 +16,24 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        //validation
-
+        //xác thực các điều kiện
         $validateData = $request->validate([
             'email'=>'required|email',
             'password' => [
                 'required',
                 'min:6',
                 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!$#%]).*$/',
-                // 'regex:/^(?=.{12,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!$#%]).{5,}$/'
                 'confirmed'
             ],
             'password_confirmation' => 'required',
         ]);
         
+        //kiểm tra email đã tồn tại trong database hay chưa
+        $existingUser = User::where('email', $validateData['email'])->first();
+        if($existingUser) {
+            return back()->withInput()->withErrors(['email' => 'Email đã tồn tại. Vui lòng chọn email khác.']);
+        }
+
         //hash password and create user
         $validateData['password'] = Hash::make($validateData['password']);
         User::create($validateData);

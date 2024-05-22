@@ -56,12 +56,30 @@
                         <div class="row justify-content-center py-sm-3 py-md-5">
                           <div class="col-sm-10 col-md-8">
                             <div class="mb-4">
-                              <label class="form-label" for="email">Username</label>
+                              <label class="form-label" for="email">Email</label>
                               <input type="text" class="form-control form-control-alt" id="block-form1-username" name="email" placeholder="Enter your username..">
+                              @if ($errors->has('email'))
+                              <div class="text-left">
+                                <ul style="list-style-type: none;">
+                                      @foreach ($errors->get('email') as $error)
+                                          <li style="color: red;">{{ $error }}</li>
+                                      @endforeach
+                                  </ul>
+                              </div>
+                              @endif
                             </div>
                             <div class="mb-4">
                               <label class="form-label" for="password">Password</label>
                               <input type="password" class="form-control form-control-alt" id="block-form1-password" name="password" placeholder="Enter your password..">
+                              @if ($errors->has('password'))
+                              <div class="text-left">
+                                <ul style="list-style-type: none;">
+                                      @foreach ($errors->get('password') as $error)
+                                          <li style="color: red;">{{ $error }}</li>
+                                      @endforeach
+                                  </ul>
+                              </div>
+                              @endif
                             </div>
                             <div class="mb-4">
                               <div class="form-check">
@@ -77,17 +95,7 @@
                 </div>
             </div>
         </div>
-
-        @if ($errors->any())
-        <div class="alert alert-danger text-center">
-          <ul style="list-style-type: none;">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-
+        
     </main>
     <!-- END Main Container -->
 

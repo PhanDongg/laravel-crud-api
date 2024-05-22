@@ -29,7 +29,8 @@ class PostSeeder extends Seeder
                 'status'=> 'Publish',
                 'created_at' => Carbon::now(),//có cả giờ
                 'updated_at' => Carbon::now(),
-                'image' => 'images/unnamed.jpg',
+                // 'image' => 'images/unnamed.jpg',
+                'image' => 'media/photos/photo1.jpg',
                 'category_id' => 1, // Khóa ngoại trỏ đến category có id = 1
 
             ],
