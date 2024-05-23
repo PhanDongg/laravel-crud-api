@@ -192,7 +192,7 @@
         <!-- END Hero -->
 
         {{-- display post --}}
-        <div class="block-content">
+        <div class="block-content container-lg m-auto">
             <div class="d-flex">
                 {{-- <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image"> --}}
                 <div class="px-5">
@@ -204,10 +204,7 @@
             </div>
             <div class="col-md-6">
                 <!-- Simple -->
-                <h4 class="border-bottom pb-2">Simple</h4>
-                <p class="fs-sm text-muted mb-2">
-                    Setting up rating is just a class away
-                </p>
+                <h4 class="border-bottom pb-2">Rating Star</h4>
                 <div class="js-rating"></div>
                 <!-- END Simple -->
             </div>
@@ -247,17 +244,6 @@
         </div>
         {{-- end display post --}}
 
-
-        12321
-        <div class="col-md-6">
-            <!-- Simple -->
-            <h4 class="border-bottom pb-2">Simple</h4>
-            <p class="fs-sm text-muted mb-2">
-                Setting up rating is just a class away
-            </p>
-            <div class="js-rating"></div>
-            <!-- END Simple -->
-        </div>
     </main>
     <!-- END Main Container -->
 
@@ -373,13 +359,35 @@
     {{-- <script src="/build/assets/js/oneui.app.min.js"></script> --}}
 
     <!-- jQuery (required for jQuery Raty plugin) -->
+    {{-- <script src="/js/lib/jquery.min.js"></script> --}}
+
+    <!-- Page JS Plugins -->
+    {{-- <script src="/js/plugins/raty-js/jquery.raty.js"></script> --}}
+
+    <!-- Page JS Code -->
+    {{-- <script src="/js/pages/be_comp_rating.min.js"></script> --}}
+
+
+
+
+    <!--
+        OneUI JS
+
+        Core libraries and functionality
+        webpack is putting everything together at assets/_js/main/app.js
+    -->
+    <script src="/js-html-version/oneui.app.min.js"></script>
+
+    <!-- jQuery (required for jQuery Raty plugin) -->
     <script src="/js/lib/jquery.min.js"></script>
 
     <!-- Page JS Plugins -->
     <script src="/js/plugins/raty-js/jquery.raty.js"></script>
 
     <!-- Page JS Code -->
-    {{-- <script src="/js/pages/be_comp_rating.min.js"></script> --}}
+    <script src="/js/pages/be_comp_rating.min.js"></script>
+
+
 </body>
 
 </html>

@@ -83,6 +83,7 @@ Route::middleware('auth.user')->prefix('user')->group(function () {
 // Route::get('/post-detail/{id}', [App\Http\Controllers\PostController::class, 'postDetail'])->name('post-detail');
 Route::get('/post-detail/{slug}', [App\Http\Controllers\PostController::class, 'postDetail'])->name('post.post-detail');
 Route::post('/post-detail/{slug}', [App\Http\Controllers\PostController::class, 'addComment'])->name('post.post-detail');
+Route::post('/post-detail/{slug}', [App\Http\Controllers\RatingController::class, 'ratePost'])->name('post.post-detail');
 
 
 //product chưa làm

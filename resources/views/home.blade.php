@@ -207,7 +207,7 @@
         <div class="content">
             <!-- Cover Link Stories -->
             <h2 class="content-heading">Blog</h2>
-            <div class="row items-push">
+            <div class="row items-push container-lg m-auto">
                 {{-- $post này là ở index() trong PostController, để trỏ tới các cột trong moduels/post --}}
                 @foreach ($posts as $post)
                     @if($post->status == 'Publish')
