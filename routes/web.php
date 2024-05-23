@@ -80,10 +80,12 @@ Route::middleware('auth.user')->prefix('user')->group(function () {
 });
 
 //post detail
-// Route::get('/post-detail/{id}', [App\Http\Controllers\PostController::class, 'postDetail'])->name('post-detail');
 Route::get('/post-detail/{slug}', [App\Http\Controllers\PostController::class, 'postDetail'])->name('post.post-detail');
 Route::post('/post-detail/{slug}', [App\Http\Controllers\PostController::class, 'addComment'])->name('post.post-detail');
-Route::post('/post-detail/{slug}', [App\Http\Controllers\RatingController::class, 'ratePost'])->name('post.post-detail');
+Route::post('/post-detail/{slug}', [App\Http\Controllers\PostController::class, 'ratePost'])->name('post.post-detail');
+// Route::post('/post-detail/{slug}/comment', [App\Http\Controllers\PostController::class, 'addComment'])->name('post.comment');
+// Route::post('/post-detail/{slug}/rate', [App\Http\Controllers\PostController::class, 'ratePost'])->name('post.rate');
+
 
 
 //product chưa làm

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Rating;
 
 class PostController extends Controller
 {
@@ -78,13 +79,39 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('posts');
     }
-    //home-page
+    // //home-page
+    // public function index()
+    // {
+    //     $posts = Post::all();
+    //     return view('home', compact('posts'));
+    // }
+    // //post detail
+    // public function postDetail($slug)
+    // {
+    //     $post = Post::where('slug', $slug)->first();
+    //     // Tăng view_count lên 1
+    //     $post->view_count += 1;
+    //     $post->save();
+
+    //     $listComments = $post->comments;
+    //     return view('posts.post-detail', ['post' => $post, 'comments' => $listComments]); //còn trường hợp ko có cmt nữa
+    // }
+
     public function index()
     {
         $posts = Post::all();
+        foreach ($posts as $post) {
+            $ratings = $post->ratings()->get();
+            $averageRating = $ratings->avg('score');
+            $comments = $post->comments()->get();
+            // Thêm ratings và averageRating vào mỗi post
+            $post->ratings = $ratings;
+            $post->averageRating = $averageRating;
+            $post->comments = $comments;
+        }
         return view('home', compact('posts'));
     }
-    //post detail
+
     public function postDetail($slug)
     {
         $post = Post::where('slug', $slug)->first();
@@ -93,12 +120,22 @@ class PostController extends Controller
         $post->save();
 
         $listComments = $post->comments;
-        return view('posts.post-detail', ['post' => $post, 'comments' => $listComments]); //còn trường hợp ko có cmt nữa
+        $ratings = $post->ratings()->get();
+        $averageRating = $ratings->avg('score');
+
+        return view('posts.post-detail', [
+            'post' => $post,
+            'comments' => $listComments,
+            'ratings' => $ratings,
+            'averageRating' => $averageRating
+        ]);
     }
+
 
     //add comment
     public function addComment($slug, Request $request)
     {
+        // dd($request->all());
         $post = Post::where('slug', $slug)->first();
 
         $validatedData = $request->validate([
@@ -116,9 +153,40 @@ class PostController extends Controller
         //lấy ra tất cả comment, có cả cái mới thêm
         $listComments = optional($post->comments)->all();
         if (!empty($listComments)) {
-            return view('posts.post-detail', ['post' => $post, 'comments' => $listComments]);
+            return view('post.post-detail', ['post' => $post, 'comments' => $listComments]);
         } else {
-            return view('posts.post-detail', ['post' => $post]);
+            return view('post.post-detail', ['post' => $post]);
         }
+    }
+
+    //add ratinggggggggggggggggggggggggggggggg
+    public function ratePost($slug, Request $request)
+    {
+        // Validate the input
+        $validatedData = $request->validate([
+            'rating' => 'required|numeric|min:1|max:5',
+        ]);
+
+        // Retrieve the post by slug
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        // Create a new rating
+        $rating = new Rating();
+        $rating->post_id = $post->id;
+        $rating->score = $validatedData['rating'];
+        $rating->save();
+
+        // Retrieve all ratings for the post
+        $ratings = $post->ratings()->get();
+
+        // Calculate the average rating
+        $averageRating = round($ratings->avg('score'), 2);
+
+        // Return the post-detail view with the post and ratings data
+        return view('posts.post-detail', [
+            'post' => $post,
+            'ratings' => $ratings,
+            'averageRating' => $averageRating
+        ]);
     }
 }

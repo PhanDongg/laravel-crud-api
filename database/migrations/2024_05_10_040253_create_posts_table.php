@@ -22,8 +22,9 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('image')->nullable();
             $table->integer('view_count')->default(0);
+            $table->integer('rating')->nullable();//ratings star nè
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');// thằng này để mapping mqh với category table
+            $table->foreign('category_id')->references('id')->on('categories');// thằng này để mapping mqh 1-m với category table
             $table->timestamps();
         });
     }

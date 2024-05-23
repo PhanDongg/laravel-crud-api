@@ -194,25 +194,21 @@
         {{-- display post --}}
         <div class="block-content container-lg m-auto">
             <div class="d-flex">
-                {{-- <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image"> --}}
+                <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
                 <div class="px-5">
                     <h3 class="mt-3">{{ $post->title }}</h3>
                     <p>{{ $post->content }}</p>
                     <p>{{ $post->author }}</p>
                 </div>
+            </div>
 
-            </div>
-            <div class="col-md-6">
-                <!-- Simple -->
-                <h4 class="border-bottom pb-2">Rating Star</h4>
-                <div class="js-rating"></div>
-                <!-- END Simple -->
-            </div>
+            {{-- view count --}}
             <div class="mx-4 pt-2 pb-2">
                 <p>Number of views: {{ $post->view_count }} view.</p>
             </div>
+
             <div class="mx-4 pt-2 pb-2">
-                <div>
+                <div class="">
                     @foreach ($comments as $comment)
                         @if ($loop->first)
                             <p class="text-danger">List comments</p>
@@ -221,8 +217,67 @@
                         <p>Content: {{ $comment->content }}</p>
                     @endforeach
                 </div>
-                <form action="{{ route('post.post-detail', ['slug' => $post->slug]) }}" method="post"
+
+                {{-- <div class="">
+                    <h1 class="text-danger">Rating Star</h1>
+                    @foreach ($ratings as $rating)
+                        <p class="d-none">Đánh giá: {{ $rating->score }}</p>
+                    @endforeach
+                    <p>Trung bình: {{ $averageRating }} </p>
+                </div> --}}
+
+                {{-- rating star --}}
+                <form class="" action="{{ route('post.post-detail', ['slug' => $post->slug]) }}" method="post"
                     enctype="multipart/form-data">
+                    @csrf
+                    <div>
+                        <label for="rating">Đánh giá:</label>
+                        <input type="number" name="rating" id="rating" min="1" max="5"
+                            class="d-none">
+                        <div id="rating-stars">
+                            <span class="rating-stars" data-rating="1">★</span>
+                            <span class="rating-stars" data-rating="2">★</span>
+                            <span class="rating-stars" data-rating="3">★</span>
+                            <span class="rating-stars" data-rating="4">★</span>
+                            <span class="rating-stars" data-rating="5">★</span>
+                        </div>
+                    </div>
+                    <button id="submit-btn">Gửi đánh giá</button>
+                </form>
+
+                <script>
+                    const stars = document.querySelectorAll('.rating-stars');
+                    const ratingInput = document.getElementById('rating');
+
+                    let currentRating = 0;
+
+                    stars.forEach(star => {
+                        star.addEventListener('click', () => {
+                            currentRating = parseInt(star.getAttribute('data-rating'));
+                            updateStars(currentRating);
+                            ratingInput.value = currentRating; // Cập nhật giá trị của input rating
+                        });
+                    });
+
+                    function updateStars(rating) {
+                        stars.forEach((star, index) => {
+                            if (index < rating) {
+                                star.style.color = 'gold';
+                            } else {
+                                star.style.color = 'black';
+                            }
+                        });
+                    }
+
+                    document.getElementById('submit-btn').addEventListener('click', () => {
+                        // Gửi điểm đánh giá (currentRating) lên server ở đây
+                        console.log('Điểm đánh giá: ' + currentRating);
+                    });
+                </script>
+
+                {{-- comments --}}
+                {{-- <form class="" action="{{ route('post.post-detail', ['slug' => $post->slug]) }}"
+                    method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="pt-2 pb-2">
@@ -239,7 +294,8 @@
                     <div class="text-center pt-2 pb-2">
                         <button class="mx-7 btn btn-primary" type="submit">Submit</button>
                     </div>
-                </form>
+                </form> --}}
+
             </div>
         </div>
         {{-- end display post --}}
@@ -356,19 +412,6 @@
         </div>
     </footer>
     <!-- END Footer -->
-    {{-- <script src="/build/assets/js/oneui.app.min.js"></script> --}}
-
-    <!-- jQuery (required for jQuery Raty plugin) -->
-    {{-- <script src="/js/lib/jquery.min.js"></script> --}}
-
-    <!-- Page JS Plugins -->
-    {{-- <script src="/js/plugins/raty-js/jquery.raty.js"></script> --}}
-
-    <!-- Page JS Code -->
-    {{-- <script src="/js/pages/be_comp_rating.min.js"></script> --}}
-
-
-
 
     <!--
         OneUI JS
@@ -386,7 +429,6 @@
 
     <!-- Page JS Code -->
     <script src="/js/pages/be_comp_rating.min.js"></script>
-
 
 </body>
 

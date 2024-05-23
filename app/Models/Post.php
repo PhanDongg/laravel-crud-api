@@ -37,13 +37,15 @@ class Post extends Model
         ];
     }
 
+    //mapping commments table
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function rating()
+    //mapping ratings table
+    public function ratings()
     {
-        return HasMany(Rating::class);
+        return $this->hasMany('App\Models\Rating', 'post_id', 'id');
     }
 }

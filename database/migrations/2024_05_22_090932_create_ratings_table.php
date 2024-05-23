@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('post_id');
-            $table->integer('rating');
-            $table->timestamps();
 
-            // $table->unique(['user_id', 'post_id']);
+        $table->id();
+        $table->tinyInteger('score')->unsigned()->default(0);
+        $table->unsignedBigInteger('post_id');
+        $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+        $table->timestamps();
+
         });
     }
 
