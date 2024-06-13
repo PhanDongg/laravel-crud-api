@@ -90,3 +90,10 @@ Route::post('/post-detail/{slug}', [App\Http\Controllers\PostController::class, 
 
 //product chưa làm
 // Route::get('/product/', )->name('product');
+
+//csv import export
+Route::controller(App\Http\Controllers\UserCSVController::class)->group(function(){
+    Route::get('users-csv', 'index');
+    Route::get('users-export', 'export')->name('users.export');
+    Route::post('users-import', 'import')->name('users.import');
+});
