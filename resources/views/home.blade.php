@@ -47,21 +47,15 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="javascript:void(0)">
-                                <i class="nav-main-link-icon si si-rocket"></i>
-                                <span class="nav-main-link-name">Features</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="javascript:void(0)">
-                                <i class="nav-main-link-icon si si-wallet"></i>
-                                <span class="nav-main-link-name">Pricing</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('doashboard')}}">
                                 <i class="nav-main-link-icon si si-envelope"></i>
                                 <span class="nav-main-link-name">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="javascript:void(0)">
+                                <i class="nav-main-link-icon si si-rocket"></i>
+                                <span class="nav-main-link-name">Product</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
@@ -74,12 +68,6 @@
                             <a class="nav-main-link" href="{{ route('register') }}">
                                 <i class="nav-main-link-icon si si-envelope"></i>
                                 <span class="nav-main-link-name">Register</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ asset('/Infor-project.html')}}">
-                                <i class="nav-main-link-icon si si-envelope"></i>
-                                <span class="nav-main-link-name">Information</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Extra</li>
@@ -249,16 +237,6 @@
                     <ul class="list list-simple-mini">
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
-                            </a>
-                        </li>
-                        <li>
-                            <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
-                            </a>
-                        </li>
-                        <li>
-                            <a class="fw-semibold" href="javascript:void(0)">
                                 <i class="fa fa-fw fa-link text-primary-lighter me-1"></i>Industrial
                             </a>
                         </li>
@@ -272,31 +250,11 @@
                                 <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Automotive
                             </a>
                         </li>
-                        <li>
-                            <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i>Consumer
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <h3>Category</h3>
                     <ul class="list list-simple-mini">
-                        <li>
-                            <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
-                            </a>
-                        </li>
-                        <li>
-                            <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
-                            </a>
-                        </li>
-                        <li>
-                            <a class="fw-semibold" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation
-                            </a>
-                        </li>
                         <li>
                             <a class="fw-semibold" href="javascript:void(0)">
                                 <i class="fa fa-fw fa-link text-primary-lighter me-1"></i> Transportation

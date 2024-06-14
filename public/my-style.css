@@ -8,3 +8,6 @@ div#DataTables_Table_0_wrapper > .row:first-child .col-sm-12:last-child{
     text-align: right;
     margin-bottom: 10px;
 }
+block-content {
+    background-color: red !important;
+}
